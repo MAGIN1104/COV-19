@@ -1,6 +1,3 @@
-import 'dart:js';
-
-import 'package:emi_covid/src/pages/QuestionsPage.dart';
 import 'package:emi_covid/src/widgets/homePage-widgets/constant.homepage.dart';
 import 'package:emi_covid/src/widgets/homePage-widgets/textContent.dart';
 import 'package:flutter/material.dart';
