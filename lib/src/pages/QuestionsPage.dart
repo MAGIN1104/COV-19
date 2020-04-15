@@ -20,7 +20,6 @@ var preguntas = [
   Question("TOS (seca, sin flema)", 1, category1),
   Question("DOLOR EN PECHO", 1, category1),
   Question("DOLOR DE CABEZA", 1, category1),
-
   Question("IRRITABILIDAD", 1, category2),
   Question("DIARREA (Persistente)", 1, category2),
   Question("VÓMITO (Persistente)", 1, category2),
@@ -53,33 +52,43 @@ class _QuestionsPageState extends State<QuestionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('CUESTIONARIO 1'),
+        backgroundColor: Colors.blueGrey,
+      ),
       body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(currentCategory),
               Text(currentQuestion),
-              Row(
-                children: <Widget>[
-                  RaisedButton(
-                    onPressed: () {
-                      print("si");
-                    },
-                    child: Text(
-                        'Si',
-                        style: TextStyle(fontSize: 20)
+              Container(
+                padding: EdgeInsets.only(top: 20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton(
+                      onPressed: () {
+                        print("si");
+                      },
+                      child: Text(
+                          'Si',
+                          style: TextStyle(fontSize: 20,)
+                      ),
                     ),
-                  ),
 
-                  RaisedButton(
-                    onPressed: () {
-                      print("no");
-                    },
-                    child: Text(
-                        'No',
-                        style: TextStyle(fontSize: 20)
+                    RaisedButton(
+                      onPressed: () {
+                        print("no");
+                      },
+                      child: Text(
+                          'No',
+                          style: TextStyle(fontSize: 20)
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               )
             ],
           )
