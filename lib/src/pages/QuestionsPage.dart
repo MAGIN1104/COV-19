@@ -1,4 +1,5 @@
 import 'package:dataclass/dataclass.dart';
+import 'package:emi_covid/src/widgets/Botonyn.dart';
 import 'package:flutter/material.dart';
 
 
@@ -68,25 +69,8 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    RaisedButton(
-                      onPressed: () {
-                        print("si");
-                      },
-                      child: Text(
-                          'Si',
-                          style: TextStyle(fontSize: 20,)
-                      ),
-                    ),
-
-                    RaisedButton(
-                      onPressed: () {
-                        print("no");
-                      },
-                      child: Text(
-                          'No',
-                          style: TextStyle(fontSize: 20)
-                      ),
-                    ),
+                    Buttonyn( yn: 'Si'),
+                    Buttonyn( yn: 'No'),            
                   ],
                 ),
               )
@@ -96,3 +80,5 @@ class _QuestionsPageState extends State<QuestionsPage> {
     );
   }
 }
+
+
