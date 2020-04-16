@@ -1,5 +1,5 @@
 import 'package:emi_covid/src/pages/HomePage.dart';
-import 'package:emi_covid/src/pages/QuestionsPage.dart';
+import 'package:emi_covid/src/pages/QuestionView/QuestionsPage.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
