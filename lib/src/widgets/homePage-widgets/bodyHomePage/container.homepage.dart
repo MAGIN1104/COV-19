@@ -1,5 +1,5 @@
+import 'package:emi_covid/src/widgets/homePage-widgets/bodyHomePage/textContent.dart';
 import 'package:emi_covid/src/widgets/homePage-widgets/constant.homepage.dart';
-import 'package:emi_covid/src/widgets/homePage-widgets/textContent.dart';
 import 'package:flutter/material.dart';
 class Contenedor extends StatelessWidget {
   @override

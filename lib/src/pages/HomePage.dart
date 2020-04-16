@@ -1,10 +1,10 @@
-import 'package:emi_covid/src/widgets/homePage-widgets/CityDate.dart';
+import 'package:emi_covid/src/widgets/homePage-widgets/Cabecera/dateUpdate.dart';
+import 'package:emi_covid/src/widgets/homePage-widgets/bodyHomePage/container.homepage.dart';
+import 'package:emi_covid/src/widgets/homePage-widgets/bodyHomePage/fondo.widget.dart';
+import 'package:emi_covid/src/widgets/homePage-widgets/bodyHomePage/smallContainers.homepage.dart';
 import 'package:emi_covid/src/widgets/homePage-widgets/constant.homepage.dart';
-import 'package:emi_covid/src/widgets/homePage-widgets/smallContainers.homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:emi_covid/src/widgets/homePage-widgets/container.homepage.dart';
-import 'package:emi_covid/src/widgets/homePage-widgets/fondo.widget.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:ui';
@@ -26,8 +26,8 @@ class _HomePageState extends State<HomePage> {
   int deaths;
   String date;
   String city;
-  @override
-  void getData() async{
+  
+   getData() async{
     http.Response response = await http.get('https://api.covid19api.com/summary');
     if(response.statusCode==200){
       String data=response.body;
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       print(response.statusCode);
     }
   }
-
+@override
   Widget build(BuildContext context) {
     bloque();
     getData();
@@ -59,34 +59,88 @@ class _HomePageState extends State<HomePage> {
           SingleChildScrollView(
             child: Column(
               children: <Widget>[
-
-                CityDate(city: city, date: date),
-
-                Container(
+               Container(
+                  margin: EdgeInsets.only(top: 20.0),
                   width: MediaQuery.of(context).size.width/1.2,
+                  child: Row(
+                    children: <Widget>[
+                      FutureBuilder(
+                        future: getData(),
+                        builder: (context,snapshot){
+                          if(date!=null){
+                              return CabeceraBol(date: date);
+                          }else{
+                              return CabeceraBol(date: "-");
+                          }
+                        }
+                      ),
+                      
+                    ],
+                  ),
+                ),
+                Container(
+                 width: MediaQuery.of(context).size.width/1.2,
                   margin: EdgeInsets.only(bottom: 40.0, top: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-
-                      SmallContainer(
-                        title: 'CONFIRMADOS',
-                        number: confirmed.toString(),
-                        style:  ktittlesc,
-                        styleT: TextStyle(
-                        color:  Color(0xffFFCC00),
-                        fontWeight: FontWeight.bold,
-                      )
+                      FutureBuilder(
+                        future: getData(),
+                        builder:(context, snapshot){
+                          if(date!= null){
+                            return 
+                            SmallContainer(
+                                title: 'CONFIRMADOS',
+                                number: confirmed.toString(),
+                                style:  ktittlesc,
+                                styleT: TextStyle(
+                                color:  Color(0xffFFCC00),
+                                fontWeight: FontWeight.bold,
+                              )
+                            );
+                          }
+                          else{
+                            return 
+                            SmallContainer(
+                                title: 'CONFIRMADOS',
+                                number: "-",
+                                style:  ktittlesc,
+                                styleT: TextStyle(
+                                color:  Color(0xffFFCC00),
+                                fontWeight: FontWeight.bold,
+                              )
+                            );
+                          }    
+                        }
                       ),
-                     SmallContainer(
-                        title: 'DECESOS',
-                        number: deaths.toString(),
-                        style: ktittlesc,
-                        styleT: TextStyle(
-                          color:  Colors.red,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
+                    FutureBuilder(
+                        future: getData(),
+                        builder:(context, snapshot){
+                          if(date!= null){
+                            return 
+                            SmallContainer(
+                                title: 'MUERTER',
+                                number: deaths.toString(),
+                                style:  ktittlesc,
+                                styleT: TextStyle(
+                                color:  Colors.red,
+                                fontWeight: FontWeight.bold,
+                              )
+                            );
+                          }
+                          else{
+                            return SmallContainer(
+                                title: 'MUERTES',
+                                number: "-",
+                                style:  ktittlesc,
+                                styleT: TextStyle(
+                                color:  Colors.red,
+                                fontWeight: FontWeight.bold,
+                              )
+                            );
+                          }    
+                        }
+                      ),
                     ],
                   ),
                 ),
