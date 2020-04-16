@@ -7,7 +7,7 @@ const kTitle=TextStyle(
   color: Colors.white,
   fontSize: 23.0,
   fontWeight: FontWeight.bold
-);
+);     
 const ktittlesc=TextStyle(
     color: Colors.white,
     fontSize: 23.0,
