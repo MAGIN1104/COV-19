@@ -10,11 +10,11 @@ class Contenedor extends StatelessWidget {
           width: MediaQuery.of(context).size.width/1.2,
           //height: MediaQuery.of(context).size.height/2,
           decoration: BoxDecoration(
-            color: Color(0xff030c36).withOpacity(0.4),
-            borderRadius: BorderRadius.circular(20.0)
+            color: Color(0xff030c36).withOpacity(0.3),
+            borderRadius: BorderRadius.circular(10.0)
             
           ),
-       child: Column(
+        child: Column(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: <Widget>[
               Container(
@@ -34,9 +34,8 @@ class Contenedor extends StatelessWidget {
 
               RaisedButton(
                 color: Color(0xffFFCC00),
-                onPressed: () {
-                 Navigator.pushNamed(context, '/questions');
-                },
+                onPressed: () => _mostrarAlert(context),
+                 //Navigator.pushNamed(context, '/questions');
                 child:Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -48,6 +47,43 @@ class Contenedor extends StatelessWidget {
            ],
          ),
        ),
+    );
+  }
+
+  void _mostrarAlert(BuildContext context) {
+    showDialog(
+      
+      context:context,
+      builder: (context){
+      
+        return AlertDialog(
+        
+          title: Text('Importante', style: TextStyle(color: Colors.blue)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text(
+                'EN NINGÚN MOMENTO SE DEBE TOMAR LO SUGERIDO EN EL TEST COMO UN DIAGNÓSTICO, TE RECOMENDAMOS CONSULTAR CON UN MÉDICO  SOBRE EL RESULTADO DE TU ORIENTACIÓN.',
+                style: TextStyle(
+                  fontSize: 15.0
+                ), 
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Cancelar'),
+              onPressed: ()=> Navigator.of(context).pop(),
+              ),
+            FlatButton(
+              child: Text('Ok'),
+              onPressed: (){
+                Navigator.popAndPushNamed(context, '/questions');
+              },
+              )
+          ],
+        );
+      } 
     );
   }
 }

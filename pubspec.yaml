@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+  http: ^0.12.0+4
 
 dev_dependencies:
   flutter_test:
@@ -26,11 +27,11 @@ flutter:
     - img/
 
   # fonts:
-  #   - family: Schyler
+  #   - family: Lato
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  #       - asset: fonts/Lato-BoldItalic.ttf
   #         style: italic
+  #       - asset: fonts/Lato-Bold.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
