@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:ui';
+const apiKey='269403381amshd0a838e710e8995p1d5a37jsnecfbfd85f088';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -119,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                           if(date!= null){
                             return 
                             SmallContainer(
-                                title: 'MUERTER',
+                                title: 'MUERTES',
                                 number: deaths.toString(),
                                 style:  ktittlesc,
                                 styleT: TextStyle(
