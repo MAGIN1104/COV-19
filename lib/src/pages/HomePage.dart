@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 CityDate(city: city, date: date),
 
                 Container(
-                  width: MediaQuery.of(context).size.width/1.2,
+                  width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.only(bottom: 40.0, top: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
