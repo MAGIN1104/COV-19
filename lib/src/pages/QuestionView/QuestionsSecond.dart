@@ -1,14 +1,14 @@
 import 'package:emi_covid/src/pages/QuestionView/questionUtils.dart';
 import 'package:flutter/material.dart';
 
-class QuestionsPage extends StatefulWidget {
+class QuestionsSecond extends StatefulWidget {
   @override
-  _QuestionsPageState createState() => _QuestionsPageState();
+  _QuestionsSecondState createState() => _QuestionsSecondState();
 }
 
-class _QuestionsPageState extends State<QuestionsPage> {
+class _QuestionsSecondState extends State<QuestionsSecond> {
 
-  var preguntas = preguntasSintomasPrimarios;
+  var preguntas = preguntasSintomasSecundarios;
   var gray = Colors.grey;
   var red = Colors.red;
   var green = Colors.green;
@@ -50,7 +50,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                         ),
 
                         Expanded(
-                          flex: 1,
+                            flex: 1,
                             child: OutlineButton(
                               child: Text("Si", style: TextStyle(
                                 color: preguntas[index].answer ? green: gray,
@@ -90,14 +90,15 @@ class _QuestionsPageState extends State<QuestionsPage> {
           ),
 
 
-              RaisedButton(
-                onPressed: (){
-                  setState(() {
-                    Navigator.popAndPushNamed(context, '/questions2');
-                  });
-                },
-                child: Text("Siguiente"),
-              ),
+          RaisedButton(
+            onPressed: (){
+              setState(() {
+                calcularScore();
+                Navigator.popAndPushNamed(context, '/result');
+              });
+            },
+            child: Text("Siguiente"),
+          ),
 
         ],
 

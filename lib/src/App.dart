@@ -1,5 +1,7 @@
 import 'package:emi_covid/src/pages/HomePage.dart';
 import 'package:emi_covid/src/pages/QuestionView/QuestionsPage.dart';
+import 'package:emi_covid/src/pages/QuestionView/QuestionsSecond.dart';
+import 'package:emi_covid/src/pages/QuestionView/ResultPage.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,6 +13,9 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/questions": (context) => QuestionsPage(),
+        "/questions2": (context) => QuestionsSecond(),
+        "/result": (context) => ResultPage()
+
 
       },
     );
