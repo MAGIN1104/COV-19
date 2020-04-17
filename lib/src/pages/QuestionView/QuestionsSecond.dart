@@ -24,11 +24,12 @@ class _QuestionsSecondState extends State<QuestionsSecond> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CUESTIONARIO 1'),
+        title: Text('CUESTIONARIO'),
         backgroundColor: Colors.blueGrey,
       ),
       body: Column(
         children: <Widget>[
+
           Text("gads"),
 
           Container(
@@ -46,7 +47,7 @@ class _QuestionsSecondState extends State<QuestionsSecond> {
                           child: SizedBox(
                               child: Text(preguntas[index].question.toString())
                           ),
-                          flex: 3,
+                          flex: 1,
                         ),
 
                         Expanded(
