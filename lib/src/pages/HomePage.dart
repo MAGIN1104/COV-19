@@ -26,17 +26,15 @@ class _HomePageState extends State<HomePage> {
   int confirmed;
   int deaths;
   String date;
-  String city;
   
    getData() async{
-    http.Response response = await http.get('https://api.covid19api.com/summary');
+    //http.Response response = await http.get('https://api.covid19api.com/summary');
+    http.Response response = await http.get('https://www.boliviasegura.gob.bo/wp-content/json/api.php');
     if(response.statusCode==200){
       String data=response.body;
-      city = jsonDecode(data)['Countries'][26]['Country'];
-      confirmed = jsonDecode(data)['Countries'][26]['TotalConfirmed'];
-      deaths = jsonDecode(data)['Countries'][26]['TotalDeaths'];
-      date = jsonDecode(data)['Countries'][26]['Date'];
-      print(city);
+      confirmed = jsonDecode(data)['contador']['confirmados'];
+      deaths = jsonDecode(data)['contador']['decesos'];
+      date = jsonDecode(data)['fecha']; 
       print(confirmed);
       print(deaths);
       print(date);
@@ -74,14 +72,13 @@ class _HomePageState extends State<HomePage> {
                               return CabeceraBol(date: "-");
                           }
                         }
-                      ),
-                      
+                      ),                
                     ],
                   ),
                 ),
                 Container(
                  width: MediaQuery.of(context).size.width/1.2,
-                  margin: EdgeInsets.only(bottom: 40.0, top: 10.0),
+                  margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -145,7 +142,21 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-
+                Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: RaisedButton(
+                    color: Colors.indigo,
+                    child: Text(
+                      "DATOS DEPARTAMENTALES",
+                      style: TextStyle(
+                        color: Colors.white
+                      ),
+                    ),
+                    onPressed: (){
+                       Navigator.pushNamed(context, '/departament');
+                    },
+                  ),
+                ),
                 Contenedor(),
               ],
             )
