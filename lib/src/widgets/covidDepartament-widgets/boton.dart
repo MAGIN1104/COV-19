@@ -43,32 +43,32 @@ class Boton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('CONFIRMADOS', style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
-                Expanded(child: Text(confirmados, style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text('CONFIRMADOS', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text(confirmados, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('DECESOS', style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
-                Expanded(child: Text(decesos, style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text('DECESOS', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text(decesos, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('SOSPECHOSOS', style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
-                Expanded(child: Text(sospechosos, style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text('SOSPECHOSOS', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text(sospechosos, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('RECUPERADOS', style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
-                Expanded(child: Text(recuperados, style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text('RECUPERADOS', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),)),
+                Expanded(child: Text(recuperados, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             )
           ],
