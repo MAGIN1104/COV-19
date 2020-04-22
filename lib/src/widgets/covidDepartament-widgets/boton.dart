@@ -43,7 +43,7 @@ class Boton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('CONFIRMADOS', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
+                Expanded(child: Text('Confirmados', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
                 Expanded(child: Text(confirmados, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             ),
@@ -51,7 +51,7 @@ class Boton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('DECESOS', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
+                Expanded(child: Text('Decesos', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
                 Expanded(child: Text(decesos, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             ),
@@ -59,7 +59,7 @@ class Boton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('SOSPECHOSOS', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
+                Expanded(child: Text('Sospechosos', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
                 Expanded(child: Text(sospechosos, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             ),
@@ -67,7 +67,7 @@ class Boton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(width: 40,),
-                Expanded(child: Text('RECUPERADOS', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
+                Expanded(child: Text('Recuperados', style: TextStyle(color: Colors.white, fontSize: 17.0, ),)),
                 Expanded(child: Text(recuperados, style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               ],
             )
