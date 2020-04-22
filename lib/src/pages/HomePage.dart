@@ -1,3 +1,5 @@
+import 'package:emi_covid/src/models/respuesta.dart';
+import 'package:emi_covid/src/providers/rest_provider.dart';
 import 'package:emi_covid/src/widgets/homePage-widgets/Cabecera/dateUpdate.dart';
 import 'package:emi_covid/src/widgets/homePage-widgets/bodyHomePage/container.homepage.dart';
 import 'package:emi_covid/src/widgets/homePage-widgets/bodyHomePage/fondo.widget.dart';
@@ -5,10 +7,7 @@ import 'package:emi_covid/src/widgets/homePage-widgets/bodyHomePage/smallContain
 import 'package:emi_covid/src/widgets/homePage-widgets/constant.homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'dart:ui';
-const apiKey='269403381amshd0a838e710e8995p1d5a37jsnecfbfd85f088';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -22,30 +21,10 @@ class _HomePageState extends State<HomePage> {
       DeviceOrientation.portraitDown
     ]);
   }
-
-  int confirmed;
-  int deaths;
-  String date;
-  
-   getData() async{
-    //http.Response response = await http.get('https://api.covid19api.com/summary');
-    http.Response response = await http.get('https://www.boliviasegura.gob.bo/wp-content/json/api.php');
-    if(response.statusCode==200){
-      String data=response.body;
-      confirmed = jsonDecode(data)['contador']['confirmados'];
-      deaths = jsonDecode(data)['contador']['decesos'];
-      date = jsonDecode(data)['fecha']; 
-      print(confirmed);
-      print(deaths);
-      print(date);
-    }else{
-      print(response.statusCode);
-    }
-  }
+final provider = RestProvider();
 @override
   Widget build(BuildContext context) {
     bloque();
-    getData();
     return Scaffold(
       appBar: AppBar(
         title: Text('Prueba Covid-19'),
@@ -64,10 +43,11 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: <Widget>[
                       FutureBuilder(
-                        future: getData(),
-                        builder: (context,snapshot){
-                          if(date!=null){
-                              return CabeceraBol(date: date);
+                        future: provider.getData(),
+                        builder: (BuildContext context, AsyncSnapshot<Respuesta> snapshot){
+                          if(snapshot.hasData){
+                              Respuesta resp= snapshot.data;
+                              return CabeceraBol(date: resp.fecha);
                           }else{
                               return CabeceraBol(date: "-");
                           }
@@ -83,13 +63,14 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       FutureBuilder(
-                        future: getData(),
-                        builder:(context, snapshot){
-                          if(date!= null){
+                        future: provider.getData(),
+                        builder:(BuildContext context, AsyncSnapshot<Respuesta> snapshot){
+                          if(snapshot.hasData){
+                            Respuesta resp= snapshot.data;
                             return 
                             SmallContainer(
                                 title: 'CONFIRMADOS',
-                                number: confirmed.toString(),
+                                number: '${resp.contador.confirmados}',
                                 style:  ktittlesc,
                                 styleT: TextStyle(
                                 color:  Color(0xffFFCC00),
@@ -111,14 +92,15 @@ class _HomePageState extends State<HomePage> {
                           }    
                         }
                       ),
-                    FutureBuilder(
-                        future: getData(),
-                        builder:(context, snapshot){
-                          if(date!= null){
+              FutureBuilder(
+                        future: provider.getData(),
+                        builder:(BuildContext context, AsyncSnapshot<Respuesta> snapshot){
+                          if(snapshot.hasData){
+                            Respuesta resp= snapshot.data;
                             return 
                             SmallContainer(
                                 title: 'MUERTES',
-                                number: deaths.toString(),
+                                number: '${resp.contador.decesos}',
                                 style:  ktittlesc,
                                 styleT: TextStyle(
                                 color:  Colors.red,
