@@ -1,3 +1,4 @@
+import 'package:emi_covid/src/pages/CovidDepartamentosPage.dart';
 import 'package:emi_covid/src/pages/HomePage.dart';
 import 'package:emi_covid/src/pages/QuestionsPage.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/questions": (context) => QuestionsPage(),
+        "/departament": (context) => CovidDepartament(),
 
       },
     );
