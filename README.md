@@ -1,5 +1,4 @@
-# emi_covid
-
+# COVID-19 AUTOCONTROL
 A new Flutter project.
 
 ## Getting Started
