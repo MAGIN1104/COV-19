@@ -42,17 +42,17 @@ final provider = RestProvider();
                   width: MediaQuery.of(context).size.width/1.2,
                   child: Row(
                     children: <Widget>[
-                      FutureBuilder(
-                        future: provider.getData(),
-                        builder: (BuildContext context, AsyncSnapshot<Respuesta> snapshot){
-                          if(snapshot.hasData){
-                              Respuesta resp= snapshot.data;
-                              return CabeceraBol(date: resp.fecha);
-                          }else{
-                              return CabeceraBol(date: "-");
-                          }
-                        }
-                      ),                
+                      // FutureBuilder(
+                      //   future: provider.getData(),
+                      //   builder: (BuildContext context, AsyncSnapshot<Respuesta> snapshot){
+                      //     if(snapshot.hasData){
+                      //         Respuesta resp= snapshot.data;
+                      //         return CabeceraBol(date: resp.fecha);
+                      //     }else{
+                      //         return CabeceraBol(date: "-");
+                      //     }
+                      //   }
+                      // ),                
                     ],
                   ),
                 ),
