@@ -78,7 +78,7 @@ class Contenedor extends StatelessWidget {
             FlatButton(
               child: Text('Ok'),
               onPressed: (){
-                Navigator.popAndPushNamed(context, '/questions');
+                Navigator.popAndPushNamed(context, '/questions1');
               },
               )
           ],
