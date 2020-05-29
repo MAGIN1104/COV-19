@@ -27,7 +27,8 @@ final provider = RestProvider();
     bloque();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Prueba Covid-19'),
+        title: Text('Test Cov-19', textAlign: TextAlign.center,),
+        
         backgroundColor: Colors.blueGrey,
       ),
       body: Stack(
@@ -42,17 +43,17 @@ final provider = RestProvider();
                   width: MediaQuery.of(context).size.width/1.2,
                   child: Row(
                     children: <Widget>[
-                      // FutureBuilder(
-                      //   future: provider.getData(),
-                      //   builder: (BuildContext context, AsyncSnapshot<Respuesta> snapshot){
-                      //     if(snapshot.hasData){
-                      //         Respuesta resp= snapshot.data;
-                      //         return CabeceraBol(date: resp.fecha);
-                      //     }else{
-                      //         return CabeceraBol(date: "-");
-                      //     }
-                      //   }
-                      // ),                
+                      FutureBuilder(
+                        future: provider.getData(),
+                        builder: (BuildContext context, AsyncSnapshot<Respuesta> snapshot){
+                          if(snapshot.hasData){
+                              Respuesta resp= snapshot.data;
+                              return CabeceraBol(date: resp.fecha);
+                          }else{
+                              return CabeceraBol(date: "-");
+                          }
+                        }
+                      ),                
                     ],
                   ),
                 ),
@@ -124,10 +125,19 @@ final provider = RestProvider();
                     ],
                   ),
                 ),
+                
+
+
+              //   
                 Container(
+                  width: MediaQuery.of(context).size.width/1.2,
                   margin: EdgeInsets.only(bottom: 10.0),
                   child: RaisedButton(
-                    color: Colors.indigo,
+                    color: Color(0xff0095c2),
+                   // color: Colors.redAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     child: Text(
                       "DATOS DEPARTAMENTALES",
                       style: TextStyle(

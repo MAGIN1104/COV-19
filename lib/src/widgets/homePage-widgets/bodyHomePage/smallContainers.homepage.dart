@@ -9,10 +9,10 @@ class SmallContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(4.0),
       width: MediaQuery.of(context).size.width/2.5,
       decoration: BoxDecoration(
-       color: Color(0xff030c36).withOpacity(0.4),
+       color: Color(0xff030c36).withOpacity(0.6),
         borderRadius: BorderRadius.circular(10.0)
       ), 
       child: Column(

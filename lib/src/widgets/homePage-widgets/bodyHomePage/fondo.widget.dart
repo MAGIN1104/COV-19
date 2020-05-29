@@ -5,10 +5,11 @@ class FondoImagen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-    fit: BoxFit.cover,
-    image: AssetImage('img/Background.jpg')
-    )
+    //     image: DecorationImage(
+    // fit: BoxFit.cover,
+    // image: AssetImage('img/background.png')
+    // )
+      color: Colors.white
       ),
     );
   }

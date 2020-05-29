@@ -6,32 +6,33 @@ class Contenedor extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
           child: Container(
-          padding: EdgeInsets.only(top: 20.0),
+          padding: EdgeInsets.only(top: 40.0),
           width: MediaQuery.of(context).size.width/1.2,
-          //height: MediaQuery.of(context).size.height/2,
           decoration: BoxDecoration(
-            color: Color(0xff030c36).withOpacity(0.3),
+            color: Color(0xff030c36).withOpacity(0.7),
             borderRadius: BorderRadius.circular(10.0)
             
           ),
         child: Column(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: <Widget>[
+             
               Container(
                 padding: EdgeInsets.only(bottom: 10.0),
-                width: 200.0,
-                height:200.0,
-                child: Image.asset('img/logo_emi.jpg'),
+                width: 150.0,
+                height:150.0,
+                child: Image.asset('img/cel.png'),
               ),
               TextContent(
-                 text: 'TEST DE COVID-19 EMI',
+                 text: 'TEST DE COVID-19',
                  style: kTitle
               ),
+              SizedBox(height: 20),
               TextContent(
                 text:'TE RECORDAMOS QUE ESTE TEST ES SOLO UNA HERRAMIENTA PARA APOYAR AL CUIDADO DE TU SALUD.',
                 style: kMessage,
               ),
-
+              SizedBox(height: 20),
               RaisedButton(
                 color: Color(0xffFFCC00),
                 onPressed: () => _mostrarAlert(context),
